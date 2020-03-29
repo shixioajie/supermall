@@ -1,28 +1,51 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <router-view></router-view>
+    <tab-bar>
+      <tab-bar-item path="/home" activeColor="#ff5777">
+        <i class="iconfont icon-shujia" slot="img"></i>
+        <i class="iconfont icon-shujia" slot="img1"></i>
+        <div slot="text">首页</div>
+      </tab-bar-item>
+      <tab-bar-item path="/cart" activeColor="#ff5777">
+        <i class="iconfont icon-qicheqianlian-" slot="img"></i>
+        <i class="iconfont icon-qicheqianlian-" slot="img1"></i>
+        <div slot="text">购物车</div>
+      </tab-bar-item>
+      <tab-bar-item path="/category" activeColor="#ff5777">
+        <i class="iconfont icon-sousuo_huaban" slot="img"></i>
+        <i class="iconfont icon-sousuo_huaban" slot="img1"></i>
+        <div slot="text">查看</div>
+      </tab-bar-item>
+      <tab-bar-item path="/profile" activeColor="#ff5777">
+        <i class="iconfont icon-wode" slot="img"></i>
+        <i class="iconfont icon-wode" slot="img1"></i>
+        <div slot="text">个人</div>
+      </tab-bar-item>
+      <!--      <tab-bar-item>-->
+      <!--        <i class="iconfont icon-wode" slot="img"></i>-->
+      <!--        <div slot="text">个人</div>-->
+      <!--      </tab-bar-item>-->
+    </tab-bar>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import tabBar from './components/conmmon/tabbar.vue'
+  import tabBarItem from './components/content/tabberitme.vue'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  export default {
+    name: 'App',
+    components: {
+      tabBar,
+      tabBarItem,
+    },
+    mounted() {
+      // console.log(this.$children)
+    }
   }
-}
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  @import "assets/css/base.css";
 </style>

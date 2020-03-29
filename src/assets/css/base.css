@@ -1,0 +1,58 @@
+@import "./normalize.css";
+
+
+/*:root表示的就是html*/
+/*css中也可以定义变量用 -- 声明 */
+:root {
+  --color-text: #666;
+  --color-height-text: #ff5777;
+  --color-tint: #ff8198;
+  --color-banckground: #fff;
+  --font-size: 14px;
+  --line-height: 1.5;
+  --large-size: 50px;
+}
+
+*,
+*::before,
+*::after { /* 伪元素 */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  user-select: none; /*禁止用户在鼠标选中文字图片等*/
+  -webkit-tap-highlight-color: transparent; /*苹果内核浏览器点击背景高亮颜色用数值调节*/
+  background: var(--color-banckground);
+  color: var(--color-text);
+  width: 100vw;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-text)
+}
+
+.clear-fix:after {
+  clear: both;
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.clear-fix {
+  zoom: 1;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
