@@ -31,7 +31,6 @@
     computed: {
       isBoole() {
         //当前活跃的对象是否是传
-
         return this.$route.path.indexOf(this.path) !== -1;
       },
       active() {

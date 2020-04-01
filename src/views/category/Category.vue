@@ -110,11 +110,29 @@
 
   export default {
     name: "Category",
+    data() {
+      return {
+        bscroll: null,
+      }
+    },
     created() {
-      console.log(this.$refs.aaaa)
+      // console.log(this.$refs.aaaa)
     },
     mounted() {
-      new BScroll(document.querySelector('.wrapper'))
+      this.bscroll = new BScroll(this.$refs.aaaa, {
+        probeType: 3,
+        click: true,
+        pullUpLoad: true
+      });
+      this.bscroll.on('scroll', position => {
+        // console.log(position)
+      });
+      this.bscroll.on('pullingUp', () => {
+        console.log('到底了');
+        setTimeout(() => {
+          this.bscroll.finishPullUp();
+        }, 1500)
+      })
     }
   }
 </script>

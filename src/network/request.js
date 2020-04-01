@@ -58,7 +58,6 @@ export function mockData(config) {
     timeout: 3000,
     method: 'get'
   });
-
   return instance(config);
 }
 

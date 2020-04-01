@@ -33,9 +33,9 @@
     color: #999999;
     content: "---到底了---";
     width: 100%;
-    height: 100px;
+    /*height: 100px;*/
     text-align: center;
-    line-height: 30px;
+    /*line-height: 30px;*/
   }
 
 

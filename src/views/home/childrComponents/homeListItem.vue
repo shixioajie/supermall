@@ -1,7 +1,7 @@
 <template>
   <div class="homeListItem">
     <div class="item">
-      <img :src="listDataItem.img" alt="">
+      <img :src="listDataItem.img" alt="" @load="imgLoad">
       <p>{{listDataItem.text}}</p>
     </div>
   </div>
@@ -17,6 +17,11 @@
           return {message: '没有数据'}
         }
       }
+    },
+    methods: {
+      imgLoad() {
+        this.$bus.$emit('itemImgLoad')//事件总线
+      },
     }
   }
 </script>

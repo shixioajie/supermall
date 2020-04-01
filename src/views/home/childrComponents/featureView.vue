@@ -13,8 +13,9 @@
 </script>
 
 <style scoped>
-  .feature  img {
-    width: 100%;
+
+  .feature img {
+    width: calc(100% + 2px);
   }
 
 </style>
