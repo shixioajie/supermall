@@ -14,6 +14,7 @@
     data() {
       return {
         Bscroll: null,
+        scrollY: 0
       }
     },
     props: {
@@ -36,6 +37,7 @@
       if (this.probeType === 2 || this.probeType === 3) {
         this.Bscroll.on('scroll', (position) => {
           let n = Math.abs(position.y);
+          this.scrollY = n;
           if (n >= 300) {
             this.scrollShow(true);
           } else if (n <= 50) {
@@ -56,16 +58,16 @@
     },
     methods: {
       toTop(x, y, time = 350) {
-        this.Bscroll.scrollTo(x, y, time)//scrollTo 方法可以设置包含范围内的scroll位置。
+        this.Bscroll && this.Bscroll.scrollTo(x, y, time);//scrollTo 方法可以设置包含范围内的scroll位置。
       },
       scrollShow(boole) {// 置顶按钮的的显示与否。
-        this.$emit('scrollShow1', boole)
+        this.Bscroll && this.$emit('scrollShow1', boole)
       },
       tabbarcontrol(n) {
-        this.$emit("tabbarcontrol", n);
+        this.Bscroll && this.$emit("tabbarcontrol", n);
       },
       refresh() {//解决滑动bug
-        this.Bscroll.refresh();
+        this.Bscroll && this.Bscroll.refresh();
       },
       finishPullUp() {
         this.Bscroll && this.Bscroll.finishPullUp();

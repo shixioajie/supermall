@@ -66,6 +66,7 @@
         finishPullUp: true,
         tabOffsetTop: 0,
         isTabFixed: false,
+        isScrollPosition: 0
       }
     },
     components: {
@@ -100,6 +101,18 @@
         refresh();
       });
     },
+    destroyed() {
+      console.log('home destroyed');
+    },
+    //该组件处于活跃
+    activated() {
+      this.$refs.toScroll.toTop(0, this.isScrollPosition, 0);
+      this.$refs.toScroll.refresh();
+    },
+    //该组件不处于活跃
+    deactivated() {
+      this.isScrollPosition = -this.$refs.toScroll.scrollY;
+    },
     methods: {
       //*数据请求处理*//
       getHomeData() {
@@ -126,7 +139,7 @@
           this.goods[type].list.push(...data.data);
 
         }).catch(error => {
-          console.log(111);
+          console.log('axios请求出现error');
         })
       },
 

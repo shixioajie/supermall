@@ -1,5 +1,5 @@
 <template>
-  <div class="homeListItem">
+  <div class="homeListItem" @click="itemClick">
     <div class="item">
       <img :src="listDataItem.img" alt="" @load="imgLoad">
       <p>{{listDataItem.text}}</p>
@@ -22,6 +22,16 @@
       imgLoad() {
         this.$bus.$emit('itemImgLoad')//事件总线
       },
+      itemClick() {
+        // this.$router.push('/detail');
+        this.$router.push({
+          path: '/detail',
+          query: {
+            img: this.listDataItem.img,
+            text: this.listDataItem.text,
+          }
+        })
+      }
     }
   }
 </script>
